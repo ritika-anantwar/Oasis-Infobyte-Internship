@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        video{
+            object-fit: cover;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            /* background-repeat: repeat; */
+        }
+
+        .video-wrapper{
+            /* position: relative; */
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #converter {
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: 550;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        select {
+            background-color: #f9f9f9;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            color: rgb(210, 0, 0);
+            font-size: 20px;
+            font-weight: 550;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-wrapper">
+        <video autoplay 1000s>
+            <source src="./bg_video.mp4" type="video/mp4"/>
+        </video>
+
+        <div id="converter">
+            <h1>Temperature Converter</h1>
+            <br>
+
+            <section>
+                <label for="temperature">Enter the temperature:</label>
+                <input type="text" id="temperature" placeholder="Enter temperature" required>
+            
+                <label for="unit">Select unit:</label>
+                <select>
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                    <option value="kelvin">Kelvin</option>
+                </select>
+                <br>
+
+                <label for="unit">Convert to Unit:</label>
+                <select id="unit">
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                    <option value="kelvin">Kelvin</option>
+                </select>
+            </section>
+        
+            <br>
+            <button id="convert">Convert</button>
+            <br>
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("convert").addEventListener("click", function() {
+            const temperatureInput = parseFloat(document.getElementById("temperature").value);
+            const unit = document.getElementById("unit").value;
+            let convertedTemperature;
+            let unitText;
+
+            if (isNaN(temperatureInput)) {
+                document.getElementById("result").innerHTML = "Please enter a valid number for temperature.";
+                return;
+            }
+
+            if (unit === "celsius") {
+                convertedTemperature = (temperatureInput - 32) * (5/9);
+                unitText = "Celsius";
+            } else if (unit === "fahrenheit") {
+                convertedTemperature = (temperatureInput * 9/5) + 32;
+                unitText = "Fahrenheit";
+            } else {
+                convertedTemperature = temperatureInput - 273.15;
+                unitText = "Kelvin";
+            }
+
+            document.getElementById("result").innerHTML = `Converted Temperature: ${convertedTemperature.toFixed(2)} ${unitText}`;
+
+        });
+    </script>
+</body>
+</html>
