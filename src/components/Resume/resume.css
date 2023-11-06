@@ -1,0 +1,55 @@
+#resume{
+    overflow: hidden;
+    width: 100vw;
+    max-width: 65rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.resumeTitle{
+    font-size: 3rem;
+    font-weight: 600;
+    padding-top: 3rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.7px;   
+}
+
+.subheading {
+    display: flex;
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+    width: 100vw;
+    max-width: 80%;
+    align-self: center;
+    text-align: left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    border-radius: 0.5rem;
+    background: rgb(50, 50, 50);
+}
+
+.subheading:hover{
+    transform: scale(1.03);
+    box-shadow: 5px 10px #606060;
+}
+
+.education, .activities, .objective, .pastimes{
+    display: flex;
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+    width: 100vw;
+    max-width: 80%;
+    align-self: center;
+    text-align: left;
+    border-radius: 0.5rem;
+    background: green;
+}
+
+li, p{
+    font-family: cursive;
+    font-size: medium;
+}

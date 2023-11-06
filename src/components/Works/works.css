@@ -1,0 +1,42 @@
+#works{
+    overflow: hidden;
+    width: 100vw;
+    max-width: 65rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.worksTitle{
+    font-size: 3rem;
+    font-weight: 600;
+    padding-top: 3rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.7px;
+}
+
+.worksDesc{
+    font-weight: 200;
+    font-size: 1rem;
+    max-width: 50rem;
+    font-family: cursive;
+    padding: 0 2rem;
+}
+
+.worksImg{
+    height: 110px;
+    width: 110px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.worksImg:hover{
+    border: 2px solid yellow;
+    transform: scale(1.2);
+}
